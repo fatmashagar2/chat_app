@@ -1,4 +1,4 @@
-import 'package:chat_app/features/splash/splash.dart';
+import 'package:chat_app/features/splash/presentation/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         textTheme:GoogleFonts.interTextTheme(),
         useMaterial3: true,
       ),
-    home: const Splash(),
+    home: const SplashScreen(),
     );
   }
 }

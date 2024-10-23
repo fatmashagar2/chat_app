@@ -1,3 +1,4 @@
+import 'package:chat_app/features/home/presentation/view/widget/home_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,8 +6,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-
+    return  Scaffold(
+      appBar: AppBar(),
+      body: const HomeBody(),
     );
   }
 }

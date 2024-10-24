@@ -30,35 +30,37 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.circle_outlined),
-            label: 'Status',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green,
-        onTap: _onItemTapped,
+    return SafeArea(
+      child: Scaffold(
+        appBar: const CustomAppBar(),
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Chats',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.circle_outlined),
+              label: 'Status',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.call),
+              label: 'Calls',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.green,
+          onTap: _onItemTapped,
+        ),
+        floatingActionButton: _selectedIndex == 0
+            ? FloatingActionButton(
+          backgroundColor: ColorsApp.primaryColor,
+          onPressed: () {},
+          child: const Icon(Icons.chat),
+        )
+            : null,
       ),
-      floatingActionButton: _selectedIndex == 0
-          ? FloatingActionButton(
-        backgroundColor: ColorsApp.primaryColor,
-        onPressed: () {},
-        child: const Icon(Icons.chat),
-      )
-          : null,
     );
   }
 }

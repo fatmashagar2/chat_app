@@ -9,7 +9,7 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         const SizedBox(height: 20),
         const Center(

@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         PopupMenuButton<String>(
           onSelected: (value) {},
           itemBuilder: (BuildContext context) {
-            return {'New group', 'Settings', 'Logout'}.map((String choice) {
+            return {'New group', 'Settings', 'Logout','Profile'}.map((String choice) {
               return PopupMenuItem<String>(
                 value: choice,
                 child: Text(choice),

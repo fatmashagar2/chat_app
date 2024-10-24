@@ -1,5 +1,6 @@
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app/features/profile/presentation/view/profile_view.dart'; // Import ProfileView
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -21,9 +22,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
         ),
         PopupMenuButton<String>(
-          onSelected: (value) {},
+          onSelected: (value) {
+            if (value == 'Profile') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileView()),
+              );
+            }
+          },
           itemBuilder: (BuildContext context) {
-            return {'New group', 'Settings', 'Logout','Profile'}.map((String choice) {
+            return {'New group', 'Settings', 'Logout', 'Profile'}.map((String choice) {
               return PopupMenuItem<String>(
                 value: choice,
                 child: Text(choice),

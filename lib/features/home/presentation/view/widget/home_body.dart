@@ -1,4 +1,5 @@
 import 'package:chat_app/core/themes/colors.dart';
+import 'package:chat_app/features/status/presentation/view/status_view.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_app_bar.dart';
@@ -16,7 +17,7 @@ class _HomeBodyState extends State<HomeBody> {
 
    static const List<Widget> _pages = <Widget>[
      ListChatItem(),
-     Center(child: Text('Status Screen', style: TextStyle(fontSize: 24))),
+   StatusView(),
     Center(child: Text('Calls Screen', style: TextStyle(fontSize: 24))),
   ];
  void _onItemTapped(int index) {

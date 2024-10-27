@@ -17,7 +17,13 @@ abstract class Styles{
   static TextStyle textStyle10= const TextStyle(
       color: ColorsApp.primaryColor,
       fontSize: 10,
+fontWeight: FontWeight.bold
 
+  );
+  static TextStyle textStyle15= const TextStyle(
+      color: ColorsApp.primaryColor,
+      fontSize: 15,
+      fontWeight: FontWeight.bold
 
   );
 }

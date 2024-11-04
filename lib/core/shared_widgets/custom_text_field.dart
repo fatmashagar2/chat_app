@@ -1,5 +1,7 @@
 import 'package:chat_app/core/themes/colors.dart';
+import 'package:chat_app/features/auth/presentation/view/widgts/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
@@ -50,8 +52,8 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: ColorsApp.primaryColor, width: 2.0),
-          borderRadius: BorderRadius.circular(12.0),
+          borderSide:  BorderSide(color: ColorsApp.primaryColor, width: 2.w),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         prefixIcon: prefix != null ? Icon(prefix) : null,
         suffixIcon: suffix != null

@@ -1,5 +1,6 @@
 import 'package:chat_app/core/const/asset_images/asset_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CallItem extends StatelessWidget {
   final String txt;
@@ -11,9 +12,9 @@ class CallItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return  ListTile(
       trailing:(icon),
-      leading: const CircleAvatar(
-        backgroundImage: AssetImage(AssetImages.profile),
-        radius: 30,
+      leading:  CircleAvatar(
+        backgroundImage: const AssetImage(AssetImages.profile),
+        radius: 30.r,
       ),
       title: Text(txt),
       subtitle: Text(subtitle),

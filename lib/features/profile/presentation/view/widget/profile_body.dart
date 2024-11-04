@@ -3,6 +3,7 @@ import 'package:chat_app/core/themes/styles.dart';
 import 'package:chat_app/features/auth/presentation/view/widgts/custom_button.dart';
 import 'package:chat_app/features/profile/presentation/view/widget/name_and_phone_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileBody extends StatelessWidget {
   const ProfileBody({super.key});
@@ -11,24 +12,24 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const SizedBox(height: 20),
-        const Center(
+         SizedBox(height: 20.h),
+         Center(
           child: CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage(AssetImages.profile),
+            radius: 50.r,
+            backgroundImage: const AssetImage(AssetImages.profile),
           ),
         ),
-        const SizedBox(height: 20),
+         SizedBox(height: 20.h),
         const NameAndPhoneWidget(
           txt: 'Name',
         ),
-        const SizedBox(height: 20),
+         SizedBox(height: 20.h),
         const NameAndPhoneWidget(
           txt: 'Phone',
         ),
-        const SizedBox(height: 100),
+         SizedBox(height: 100.h),
         Padding(
-          padding: const EdgeInsets.all(12),
+          padding:  EdgeInsets.all(12.r),
           child: CustomButton(text: "Save Profile", onPressed: (){
 
           }),

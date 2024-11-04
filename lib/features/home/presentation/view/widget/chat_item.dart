@@ -1,5 +1,7 @@
 import 'package:chat_app/core/const/asset_images/asset_images.dart';
+import 'package:chat_app/features/auth/presentation/view/widgts/login_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatItem extends StatelessWidget {
   final String name;
@@ -17,7 +19,7 @@ class ChatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        radius: 30.0,
+        radius: 30.r,
         backgroundImage: AssetImage(imagePath),
       ),
       title: Text(name),

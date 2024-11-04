@@ -1,6 +1,7 @@
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/features/profile/presentation/view/profile_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -8,7 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding:  EdgeInsets.only(top: 20.h),
       child: AppBar(
         title: Text(
           "WhatsApp",

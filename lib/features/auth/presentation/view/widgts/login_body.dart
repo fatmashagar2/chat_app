@@ -8,6 +8,7 @@ import 'package:chat_app/features/auth/presentation/view/widgts/password_field.d
 import 'package:chat_app/features/auth/presentation/view/widgts/register_row.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginBody extends StatefulWidget {
   LoginBody({super.key});
@@ -29,19 +30,19 @@ class _LoginBodyState extends State<LoginBody> {
     return Form(
       key: formKey,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.h),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const LogoWidget(),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               const LoginAndRegisterTitle(txt: "Log in to your account",),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               EmailField(
                 emailController: emailController,
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               PasswordField(
                 passwordController: passwordController,
                 toggleVisibility: () {
@@ -51,7 +52,7 @@ class _LoginBodyState extends State<LoginBody> {
                 },
                 isVisibility: isPasswordVisible,
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               LoginButton(
                 onSuccess: () {
                   Navigator.pushReplacement(
@@ -62,7 +63,7 @@ class _LoginBodyState extends State<LoginBody> {
                 emailController: emailController,
                 passwordController: passwordController, txt: 'Log in',
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               const RegisterRow()
             ],
           ),

@@ -10,6 +10,7 @@ import 'package:chat_app/features/auth/presentation/view/widgts/phone_widget.dar
 import 'package:chat_app/features/auth/presentation/view/widgts/register_row.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupBody extends StatefulWidget {
   SignupBody({super.key});
@@ -33,23 +34,23 @@ class _SignupBodyState extends State<SignupBody> {
     return Form(
       key: formKey,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.r),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const LogoWidget(),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               const LoginAndRegisterTitle(txt: "Register a New Account"),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               NameWidget(),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               EmailField(
                 emailController: emailController,
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               PhoneWidget(phoneController: phoneController,),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               PasswordField(
                 passwordController: passwordController,
                 toggleVisibility: () {
@@ -59,9 +60,9 @@ class _SignupBodyState extends State<SignupBody> {
                 },
                 isVisibility: isPasswordVisible,
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
 
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               LoginButton(
                 onSuccess: () {
                   if (formKey.currentState!.validate()) {
@@ -75,7 +76,7 @@ class _SignupBodyState extends State<SignupBody> {
                 passwordController: passwordController,
                 txt: 'Sign up',
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20.h),
               const LoginRow(),
             ],
           ),

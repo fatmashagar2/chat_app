@@ -2,6 +2,7 @@ import 'package:chat_app/core/const/asset_images/asset_images.dart';
 import 'package:chat_app/core/themes/colors.dart';
 import 'package:chat_app/core/themes/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StoryItem extends StatelessWidget {
   final String txt;
@@ -19,20 +20,20 @@ class StoryItem extends StatelessWidget {
       subtitle: Text(subtitle),
       leading: Stack(
         children: [
-          const CircleAvatar(
-            radius: 30.0,
-            backgroundImage: AssetImage(AssetImages.profile),
+           CircleAvatar(
+            radius: 30.r,
+            backgroundImage: const AssetImage(AssetImages.profile),
           ),
           if (txt == 'My Status')
-            const Positioned(
-              bottom: 0,
-              right: 0,
+             Positioned(
+              bottom: 0.r,
+              right: 0.r,
               child: CircleAvatar(
-                radius: 12.0,
+                radius: 12.r,
                 backgroundColor: Colors.white,
                 child: Icon(
                   Icons.add,
-                  size: 16.0,
+                  size: 16.r,
                   color: ColorsApp.primaryColor,
                 ),
               ),

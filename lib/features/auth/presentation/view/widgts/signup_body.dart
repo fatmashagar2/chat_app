@@ -9,6 +9,7 @@ import 'package:chat_app/features/auth/presentation/view/widgts/password_field.d
 import 'package:chat_app/features/auth/presentation/view/widgts/phone_widget.dart';
 import 'package:chat_app/features/auth/presentation/view/widgts/register_row.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupBody extends StatefulWidget {
@@ -27,6 +28,35 @@ class _SignupBodyState extends State<SignupBody> {
   bool isPasswordVisible = false;
   bool isConfirmPasswordVisible = false;
   var formKey = GlobalKey<FormState>();
+  FirebaseAuth instance = FirebaseAuth.instance;
+
+  Future<void> _signUp() async {
+    if (formKey.currentState!.validate()) {
+      try {
+        String email = emailController.text;
+        String password = passwordController.text;
+
+        UserCredential userCredential = await instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeView()),
+        );
+      } on FirebaseAuthException catch (e) {
+        if(e.code=='weak-password'){
+          //snack_bar
+        }
+        else if(e.code=='email-already-in-use'){
+          //snack_bar
+        }
+      } catch (e) {
+        print("Unexpected error: $e");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +93,7 @@ class _SignupBodyState extends State<SignupBody> {
 
               const SizedBox(height: 20),
               LoginButton(
-                onSuccess: () {
-                  if (formKey.currentState!.validate()) {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeView()));
-                  }
-                },
+                onSuccess: _signUp, // Call _signUp method when button is pressed
                 emailController: emailController,
                 passwordController: passwordController,
                 txt: 'Sign up',

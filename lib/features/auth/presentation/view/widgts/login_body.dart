@@ -7,6 +7,7 @@ import 'package:chat_app/features/auth/presentation/view/widgts/logo_widget.dart
 import 'package:chat_app/features/auth/presentation/view/widgts/password_field.dart';
 import 'package:chat_app/features/auth/presentation/view/widgts/register_row.dart';
 import 'package:chat_app/features/home/presentation/view/home_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginBody extends StatefulWidget {
@@ -19,9 +20,41 @@ class LoginBody extends StatefulWidget {
 class _LoginBodyState extends State<LoginBody> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  FirebaseAuth instance=FirebaseAuth.instance;
 
   bool isPasswordVisible = false;
   var formKey = GlobalKey<FormState>();
+  Future<void> _signIn() async {
+    if (formKey.currentState!.validate()) {
+      try {
+        String email = emailController.text;
+        String password = passwordController.text;
+
+        UserCredential userCredential = await instance.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeView()),
+        );
+      } on FirebaseAuthException catch (e) {
+        if(e.code=='invalid-email'){
+          //snack_bar
+        }
+        else if(e.code=='user-not-found'){
+          print('user not found');
+          //snack_bar
+        }
+        else if(e.code=='wrong-password'){
+          //snack_bar
+        }
+      } catch (e) {
+        print("Unexpected error: $e");
+      }
+    }
+  }
 
 
   @override
@@ -54,10 +87,7 @@ class _LoginBodyState extends State<LoginBody> {
               const SizedBox(height: 20),
               LoginButton(
                 onSuccess: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomeView()));
+                  _signIn();
                 },
                 emailController: emailController,
                 passwordController: passwordController, txt: 'Log in',

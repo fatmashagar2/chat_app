@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final VoidCallback? onPressed;
   final VoidCallback? onTap;
-  final bool isObscureText;  // Optional parameter
+  final bool isObscureText;
 
   const CustomTextField({
     Key? key,

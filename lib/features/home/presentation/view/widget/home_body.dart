@@ -3,8 +3,10 @@ import 'package:chat_app/features/calls/presentation/view/calls_view.dart';
 import 'package:chat_app/features/status/presentation/view/status_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../auth/presentation/view/login_view.dart';
 import 'custom_app_bar.dart';
 import 'list_chat_item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -14,8 +16,23 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  FirebaseAuth instance = FirebaseAuth.instance;
   int _selectedIndex = 0;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    instance.authStateChanges().listen((User? usr) {
+      if (usr == null) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginView()));
+        print('No User');
+      } else {
+        print("User");
+      }
+    });
+  }
   static const List<Widget> _pages = <Widget>[
     ListChatItem(),
     StatusView(),
